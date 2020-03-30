@@ -1,4 +1,5 @@
 const express = require('express');
+const crypto = require('crypto');
 
 const routes = express.Router();
 
@@ -14,14 +15,14 @@ const routes = express.Router();
  * Request Body: Corpo da request , utilizado para criar ou alterar recursos 
  */
 
-routes.post('/users', (request, response) => {
-    const body = request.body;
-    console.log(body);
+routes.post('/ongs', (request, response) => {
+    const { name, email, whatsapp, city, uf} = request.body;
 
-    return response.json({
-        evento: 'Semana OmniStavck',
-        aluno: 'Judson fefefefeique'
-    });
+    const id = crypto.randomBytes(4).toString('HEX');
+
+    console.log(data);
+
+    return response.json();
 });
 
 module.exports = routes;
