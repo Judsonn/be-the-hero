@@ -1,5 +1,8 @@
 const express = require('express');
+const OngsController = require('./controllers/OngsController');
+const IncidentController = require('./controllers/IncidentController');
 const crypto = require('crypto');
+
 
 const routes = express.Router();
 
@@ -15,14 +18,11 @@ const routes = express.Router();
  * Request Body: Corpo da request , utilizado para criar ou alterar recursos 
  */
 
-routes.post('/ongs', (request, response) => {
-    const { name, email, whatsapp, city, uf} = request.body;
+routes.post('/ongs', OngsController.create);
+routes.get('/ongs', OngsController.index); 
 
-    const id = crypto.randomBytes(4).toString('HEX');
-
-    console.log(data);
-
-    return response.json();
-});
+routes.post('/incidents', IncidentController.create);
+routes.get('/incidents', IncidentController.index);
+routes.delete('/incidents/:id', IncidentController.delete);
 
 module.exports = routes;
