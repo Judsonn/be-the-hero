@@ -1,5 +1,4 @@
 import React from 'react';
-import Logon from './pages/Login';
 import  './global.css';
 
 import Routes from './routes'
